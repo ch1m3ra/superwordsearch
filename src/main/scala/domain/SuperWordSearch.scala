@@ -16,7 +16,7 @@ class SuperWordSearch(matrix: Matrix, wrap_mode: Boolean, word_list: Array[Strin
     * @param word to query the matrix for.
     * @return a tuple of word and a list of vectors of possible words.
     */
-  def get_location_vectors(word: String) = {
+  private def get_location_vectors(word: String) = {
     possible_words(word) match {
       case Some(locations) =>
         (word, matrix.get_neighborhood_vectors(
@@ -42,11 +42,11 @@ class SuperWordSearch(matrix: Matrix, wrap_mode: Boolean, word_list: Array[Strin
 
 //  println(matrix)
 
-  val possible_words = Map() ++ word_list.map(word =>
+  private val possible_words = Map() ++ word_list.map(word =>
     (word, matrix.locations.get(word.head))
   )
 
-  val location_vectors = word_list.map(word => get_location_vectors(word))
+  private val location_vectors = word_list.map(word => get_location_vectors(word))
 
   val results = for((word, coordinate_results) <- location_vectors) yield {
     val results = (for(coordinate_vector <- coordinate_results) yield {

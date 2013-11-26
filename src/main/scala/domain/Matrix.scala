@@ -16,8 +16,8 @@ class Matrix(height: Int, width: Int, lines: Iterator[String]) {
 
   override def toString: String = grid.map(_.mkString("")).mkString("\n")
 
-  def increase(left:Int)(right:Int) = left + right
-  def decrease(left:Int)(right:Int) = left - right
+  private def increase(left:Int)(right:Int) = left + right
+  private def decrease(left:Int)(right:Int) = left - right
 
   /** Gets all the valid vectors based on the locations given
     *

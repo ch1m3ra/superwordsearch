@@ -14,7 +14,7 @@ class InputParse(input_lines: Iterator[String]) {
     * @param lines a list of lines containing the matrix with the first line declaring how many words should be found.
     * @return the discovered matrix and lines left to process.
     */
-  def parse_matrix(lines: Iterator[String]): Option[(Matrix, Iterator[String])] = {
+  private def parse_matrix(lines: Iterator[String]): Option[(Matrix, Iterator[String])] = {
     val dimension = lines.next().split(" ", 2)
     val height = Integer.valueOf(dimension(0))
     val width = Integer.valueOf(dimension(1))
@@ -30,7 +30,7 @@ class InputParse(input_lines: Iterator[String]) {
     * @param lines a list of lines which the first line should be the wrap mode.
     * @return the wrap mode and lines left to process.
     */
-  def parse_wrap_mode(lines: Iterator[String]): Option[(Boolean, Iterator[String])] = lines.next() match {
+  private def parse_wrap_mode(lines: Iterator[String]): Option[(Boolean, Iterator[String])] = lines.next() match {
     case "NO_WRAP" => Some(false, lines)
     case "WRAP" => Some(true, lines)
     case _ => None
@@ -41,7 +41,7 @@ class InputParse(input_lines: Iterator[String]) {
     * @param lines a list of lines containing the word list with the first line declaring how many words should be found.
     * @return the word list and lines left to process.
     */
-  def parse_word_list(lines: Iterator[String]): Option[(Array[String], Iterator[String])] = {
+  private def parse_word_list(lines: Iterator[String]): Option[(Array[String], Iterator[String])] = {
     val word_count = Integer.valueOf(lines.next())
     val word_list = lines.take(word_count).toArray
 
