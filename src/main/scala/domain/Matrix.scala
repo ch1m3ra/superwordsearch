@@ -8,7 +8,7 @@ import scala.collection.mutable
   * @constructor create a new instance of the matrix
   * @param height of the matrix
   * @param width of the matrix
-  * @param lines used populate the matrix
+  * @param lines used to populate the matrix
   * @return an instance of Matrix
   */
 class Matrix(height: Int, width: Int, lines: Iterator[String]) {
