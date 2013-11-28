@@ -18,13 +18,7 @@ object Main extends BaseScript {
     super_word_search = new SuperWordSearch(matrix, wrap_mode, word_list)
   ) yield (game_path, super_word_search)
 
-  for((path, game) <- word_search_games) {
-    println("#--------------------------------#")
-    println(path)
-    println("#--------------------------------#")
-    game.results.foreach(result => println(result._2))
-    println("")
-  }
+  for((path, game) <- word_search_games) game.results.foreach(result => println(result._2))
 }
 
 /** Helper class to handle getting arguments from the command line, if no arguments are passed in then a
@@ -36,6 +30,6 @@ object Main extends BaseScript {
   */
 class BaseScript extends App {
   def load_configuration( args: Array[String] ) = {
-    if ( args.length > 0 ) args else Array("src/files/input/game1.input")
+    if ( args.length > 0 ) args else Array("src/files/input/game2.input")
   }
 }
